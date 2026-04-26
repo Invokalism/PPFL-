@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("http://0.0.0.0:8080");
+
 builder.Services.AddDbContext<ShippingDetailsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ShippingDetailsContext") ?? throw new InvalidOperationException("Connection string 'ShippingDetailsContext' not found.")));
 
