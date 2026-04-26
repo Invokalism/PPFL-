@@ -1,0 +1,106 @@
+﻿@model ListReport1._3.Models.ShippingDetails
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Create Payable";
+}
+
+<form asp-action="Create" id="createFormPayable" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label asp-for="JobNo" class="form-label"></label>
+                <select asp-for="JobNo" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.JobNo, "JobNo", "JobNo"))">
+                </select>
+                <span asp-validation-for="JobNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Trade" class="form-label"></label>
+                <select asp-for="Trade" placeholder="Select Trade" class="form-control" asp-items="@(new SelectList(ViewBag.Trades, "TradeName", "TradeName"))">
+                </select>
+                <span asp-validation-for="Trade" class="text-danger"></span>
+            </div>
+
+            <!-- BL Numbers -->
+            <div class="col-md-6">
+                <label asp-for="HblNo" class="form-label"></label>
+                <input asp-for="HblNo" class="form-control" />
+                <span asp-validation-for="HblNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="MblNo" class="form-label"></label>
+                <input asp-for="MblNo" class="form-control" />
+                <span asp-validation-for="MblNo" class="text-danger"></span>
+            </div>
+
+            <!-- Dates & Location -->
+            <div class="col-md-6">
+                <label asp-for="Ata" class="form-label"></label>
+                <input asp-for="Ata" type="date" class="form-control" />
+                <span asp-validation-for="Ata" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="PolPod" class="form-label"></label>
+                <input asp-for="PolPod" class="form-control" />
+                <span asp-validation-for="PolPod" class="text-danger"></span>
+            </div>
+
+            <!-- Shipment Info -->
+            <div class="col-md-6">
+                <label asp-for="Shipper" class="form-label"></label>
+                <input asp-for="Shipper" class="form-control" />
+                <span asp-validation-for="Shipper" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Vessel" class="form-label"></label>
+                <input asp-for="Vessel" class="form-control" />
+                <span asp-validation-for="Vessel" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Commodity" class="form-label"></label>
+                <input asp-for="Commodity" class="form-control" />
+                <span asp-validation-for="Commodity" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Teus" class="form-label"></label>
+                <input asp-for="Teus" class="form-control" />
+                <span asp-validation-for="Teus" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Volume" class="form-label"></label>
+                <input asp-for="Volume" class="form-control" />
+                <span asp-validation-for="Volume" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Measurement" class="form-label"></label>
+                <input asp-for="Measurement" class="form-control" />
+                <span asp-validation-for="Measurement" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-4 text-end">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-circle"></i> Create
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Cancel
+            </button>
+        </div>
+    </div>
+</form>

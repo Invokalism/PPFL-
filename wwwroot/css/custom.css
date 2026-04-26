@@ -1,0 +1,537 @@
+﻿/* ================= DESIGN TOKENS ================= */
+:root {
+    --primary: #6f42c1;
+    --primary-light: #9b6bff;
+    --success: #28a745;
+    --success-light: #20c997;
+    --danger: #dc3545;
+    --danger-light: #ff7b7b;
+    --info: #1e88e5;
+    --info-light: #6fa8dc;
+    --secondary: #6c757d;
+    --secondary-light: #9aa0a6;
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --text: #333;
+    --muted: #777;
+    --border: #eee;
+    --radius: 10px;
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
+    --shadow-md: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* ================= GLOBAL ================= */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    color: var(--text);
+}
+
+/* ================= LAYOUT ================= */
+.layout-wrapper {
+    min-height: 100vh;
+    display: flex;
+}
+
+.flex-grow-1 {
+    padding: 16px 22px 22px;
+}
+
+/* ================= NAVBAR ================= */
+.custom-navbar {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    padding: 10px 20px;
+}
+
+/* Remove Bootstrap override */
+.navbar-brand {
+    color: transparent !important;
+}
+
+/* ================= BRAND LOGO ================= */
+.brand-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.2s ease;
+}
+
+    .brand-logo:hover {
+        filter: brightness(1.1);
+    }
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .sidebar .nav-link {
+        color: #666;
+        padding: 10px 14px;
+        border-radius: var(--radius);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.2s ease;
+    }
+
+        .sidebar .nav-link:hover {
+            background: #f3f0ff;
+            color: var(--primary);
+        }
+
+        .sidebar .nav-link.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+    .sidebar .dropdown {
+        margin-top: auto;
+    }
+
+/* ================= HEADER ================= */
+.dashboard-header {
+    background: #f7f5fb;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .dashboard-header h4 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+/* Icon */
+.icon-box {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+    border-radius: 8px;
+    font-size: 0.85rem;
+    padding: 7px 14px;
+}
+
+/* PILL BUTTONS */
+.btn-pill {
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    color: #fff;
+    transition: 0.25s ease;
+}
+
+    .btn-pill:hover {
+        transform: translateY(-1px);
+    }
+
+/* PRIMARY */
+.btn-primary-pill {
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    box-shadow: 0 4px 14px rgba(111,66,193,0.35);
+}
+
+    .btn-primary-pill:hover {
+        box-shadow: 0 6px 18px rgba(111,66,193,0.45);
+    }
+
+/* SUCCESS */
+.btn-success-pill {
+    background: linear-gradient(90deg, var(--success-light), var(--success));
+    box-shadow: 0 4px 14px rgba(40,167,69,0.35);
+}
+
+    .btn-success-pill:hover {
+        box-shadow: 0 6px 18px rgba(40,167,69,0.45);
+    }
+
+/* SECONDARY */
+.btn-secondary-pill {
+    background: linear-gradient(90deg, var(--secondary-light), var(--secondary));
+    box-shadow: 0 4px 14px rgba(108,117,125,0.35);
+}
+
+    .btn-secondary-pill:hover {
+        box-shadow: 0 6px 18px rgba(108,117,125,0.45);
+    }
+
+/* INFO (Edit) */
+.btn-info-pill {
+    background: linear-gradient(90deg, var(--info-light), var(--info));
+    box-shadow: 0 4px 12px rgba(30,136,229,0.35);
+}
+
+    .btn-info-pill:hover {
+        box-shadow: 0 6px 16px rgba(30,136,229,0.45);
+    }
+
+/* DANGER (Delete) */
+.btn-danger-pill {
+    background: linear-gradient(90deg, var(--danger-light), var(--danger));
+    box-shadow: 0 4px 12px rgba(220,53,69,0.35);
+}
+
+    .btn-danger-pill:hover {
+        box-shadow: 0 6px 16px rgba(220,53,69,0.45);
+    }
+
+/* Small buttons */
+.btn-pill.btn-sm {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+}
+
+/* ================= SEARCH ================= */
+.search {
+    display: flex;
+    max-width: 260px;
+    margin-left: auto;
+}
+
+.searchTerm {
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px 0 0 8px;
+}
+
+.searchButton {
+    width: 42px;
+    height: 38px;
+    border-radius: 0 8px 8px 0;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+}
+
+    .searchButton:hover {
+        background: #5a34a5;
+    }
+
+/* ================= TABLE ================= */
+#printArea {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* Scrollable container REQUIRED for sticky */
+#printArea {
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+/* ================= TABLE ================= */
+
+/* Table base */
+.table-custom {
+    width: 100%;
+    border-collapse: collapse; /* removes highlight lines */
+}
+
+    /* ================= STICKY HEADER ================= */
+    .table-custom thead {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+        /* Make header fully solid (fix bleed-through) */
+        .table-custom thead th {
+            background: #f7f5fb;
+        }
+
+        /* Optional shadow for separation */
+        .table-custom thead tr {
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+    /* ================= HEADER ================= */
+    .table-custom th {
+        padding: 14px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+    }
+
+    /* ================= BODY ================= */
+    .table-custom td {
+        padding: 16px 14px;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        border: none; /* remove any hidden lines */
+    }
+
+    /* Remove row borders completely */
+    .table-custom tr {
+        border: none;
+    }
+
+    /* ================= HOVER ================= */
+    .table-custom tbody tr:hover {
+        background: #fafafa; /* clean highlight */
+    }
+
+    /* ================= ACTIONS ================= */
+    .table-custom td:last-child {
+        min-width: 110px;
+        text-align: center;
+    }
+/* ================= MODAL ================= */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border);
+}
+
+/* ================= UTIL ================= */
+.narrow-container {
+    max-width: 98%;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .flex-grow-1 {
+        padding: 16px;
+    }
+}
+/* === FIX HIGHLIGHT LINES ONLY === */
+.table-custom tr {
+    border-bottom: none !important;
+}
+
+.table-custom th,
+.table-custom td {
+    border: none !important;
+}
+
+.table-custom tbody tr:hover {
+    background: #fafafa; /* keep your current hover, just clean */
+}
+
+/* Modal header */
+.custom-modal-header {
+    border-bottom: 1px solid #eee;
+    padding: 14px 18px;
+}
+
+/* Title wrapper */
+.modal-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icon */
+.modal-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6f42c1, #9b6bff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Title */
+.modal-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/*CREATE AND EDIT MODAL*/
+
+/* Section headers */
+.section-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6f42c1;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+
+    .section-title::before {
+        content: "";
+        width: 4px;
+        height: 14px;
+        background: #6f42c1;
+        margin-right: 8px;
+        border-radius: 2px;
+    }
+
+/* Improve inputs globally */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 7px 10px;
+    font-size: 0.85rem;
+}
+
+    /* Focus effect */
+    .form-control:focus {
+        border-color: #6f42c1;
+        box-shadow: 0 0 0 2px rgba(111,66,193,0.1);
+    }
+
+/* Labels */
+.form-label {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 3px;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(90deg, #6f42c1, #9b6bff);
+    border: none;
+    border-radius: 50px;
+    padding: 6px 14px;
+}
+
+.btn-light {
+    border-radius: 50px;
+    padding: 6px 14px;
+}
+
+
+
+/*DELETE MODAL*/
+
+/* Modal container */
+.delete-modal {
+    border-radius: 14px;
+    padding: 10px;
+}
+
+/* Icon circle */
+.delete-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+
+    border-radius: 50%;
+    background: rgba(220,53,69,0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    color: #dc3545;
+}
+
+/* Main text */
+.delete-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Sub text */
+.delete-subtext {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Danger pill button */
+.btn-danger-pill {
+    background: linear-gradient(90deg, #ff7b7b, #dc3545);
+    border: none;
+    border-radius: 50px;
+    padding: 6px 16px;
+    color: #fff;
+}
+
+/* Cancel button */
+.btn-light {
+    border-radius: 50px;
+    padding: 6px 16px;
+}
+
+
+/*SUCESS MESSAGE*/
+/* Modal container */
+.success-modal {
+    border-radius: 14px;
+    padding: 10px;
+}
+
+/* Icon circle */
+.success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: rgba(40,167,69,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #28a745;
+}
+
+/* Main text */
+.success-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Sub text */
+.success-subtext {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.table-total {
+    background: #f7f5fb;
+    border-top: 2px solid #6f42c1;
+}
+
+    .table-total td {
+        font-size: 0.95rem;
+    }

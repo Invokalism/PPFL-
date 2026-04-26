@@ -1,0 +1,101 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ListReport1._3
+build_property.RootNamespace = ListReport1._3
+build_property.ProjectDir = C:\Users\Emmanuel\source\repos\ListReport1.3\ListReport1.3\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Emmanuel\source\repos\ListReport1.3\ListReport1.3
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Billing Statement/Billing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXEJpbGxpbmcgU3RhdGVtZW50XEJpbGxpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Billing Statement/EditBilling.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXEJpbGxpbmcgU3RhdGVtZW50XEVkaXRCaWxsaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Billing Statement/PrintBilling.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXEJpbGxpbmcgU3RhdGVtZW50XFByaW50QmlsbGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Payables/CreatePayable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFBheWFibGVzXENyZWF0ZVBheWFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Payables/EditPayable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFBheWFibGVzXEVkaXRQYXlhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Payables/Payables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFBheWFibGVzXFBheWFibGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Payables/PrintPayables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFBheWFibGVzXFByaW50UGF5YWJsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Shipment Details/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFNoaXBtZW50IERldGFpbHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Shipment Details/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFNoaXBtZW50IERldGFpbHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Shipment Details/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFNoaXBtZW50IERldGFpbHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Shipment Details/Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFNoaXBtZW50IERldGFpbHNcUHJpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/ShippingDetails/Shipment Details/Table.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdEZXRhaWxzXFNoaXBtZW50IERldGFpbHNcVGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Emmanuel/source/repos/ListReport1.3/ListReport1.3/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ky06hc8n0u

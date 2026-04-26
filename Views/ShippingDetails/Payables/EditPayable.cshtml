@@ -1,0 +1,102 @@
+﻿@model ListReport1._3.Models.ShippingDetails
+
+<form id="editForm" asp-action="EditPayable">
+    <input type="hidden" asp-for="ID" />
+
+    <div class="container-fluid p-3">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+        <!-- 🔷 SECTION: JOB INFO -->
+        <div class="section-title">Job Information</div>
+        <div class="row g-2">
+
+            <div class="col-md-6">
+                <label asp-for="JobNo" class="form-label"></label>
+                <input asp-for="JobNo" readonly="readonly" class="form-control" />
+                <span asp-validation-for="JobNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="HblNo" class="form-label"></label>
+                <input asp-for="HblNo" readonly="readonly" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="MblNo" class="form-label"></label>
+                <input asp-for="MblNo" readonly="readonly" class="form-control" />
+            </div>
+
+            <!-- 🔷 SECTION: Agents -->
+            <div class="section-title mt-3">Agents</div>
+            <div class="row g-2">
+
+                <div class="col-md-6">
+                    <label asp-for="AgentName" class="form-label"></label>
+                    <input asp-for="AgentName" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="AgentInvoiceNo" class="form-label"></label>
+                    <input asp-for="AgentInvoiceNo" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="AgentAmount" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="AgentAmount" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="AgentDateIssued" class="form-label"></label>
+                    <input asp-for="AgentDateIssued" type="date" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="AgentDatePaid" class="form-label"></label>
+                    <input asp-for="AgentDatePaid" type="date" class="form-control" />
+                </div>
+
+                <!-- 🔷 SECTION: Consol -->
+                <div class="section-title mt-3">Consol</div>
+                <div class="row g-2">
+
+                    <div class="col-md-6">
+                        <label asp-for="SlPayable" class="form-label"></label>
+                        <input asp-for="SlPayable" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="SlInvoiceNo" class="form-label"></label>
+                        <input asp-for="SlInvoiceNo" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="SlAmount" class="form-label"></label>
+                        <input type="number" step="0.01" asp-for="SlAmount" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="SlDateIssued" class="form-label"></label>
+                        <input asp-for="SlDateIssued" type="date" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="SlDatePaid" class="form-label"></label>
+                        <input asp-for="SlDatePaid" type="date" class="form-control" />
+                    </div>
+
+                </div>
+
+                <!-- 🔷 FOOTER -->
+                <div class="mt-3 d-flex justify-content-end gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Save Changes
+                    </button>
+
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+
+            </div>
+</form>

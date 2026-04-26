@@ -1,0 +1,79 @@
+﻿@model List<ListReport1._3.Models.ShippingDetails>
+
+@{
+    Layout = null;   // VERY IMPORTANT
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Shipment Report</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 6px;
+            font-size: 12px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body onload="window.print()">
+
+    <h2>Payables</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Job No</th>
+                <th>HBL No</th>
+                <th>MBL No</th>
+                <th>Payable to Agent</th>
+                <th>Invoice No.</th>
+                <th>Amount</th>
+                <th>Date Issued</th>
+                <th>Date Paid</th>
+                <th>Payable to (Sl/Consol)</th>
+                <th>Invoice No.</th>
+                <th>Amount</th>
+                <th>Date Issued</th>
+                <th>Date Paid</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.JobNo</td>
+                    <td>@item.HblNo</td>
+                    <td>@item.MblNo</td>
+                    <td>@item.AgentName</td>
+                    <td>@item.AgentInvoiceNo</td>
+                    <td>$@item.AgentAmount</td>
+                    <td>@item.AgentDateIssued</td>
+                    <td>@item.AgentDatePaid</td>
+                    <td>@item.SlPayable</td>
+                    <td>@item.SlInvoiceNo</td>
+                    <td>₱@item.SlAmount</td>
+                    <td>@item.SlDateIssued</td>
+                    <td>@item.SlDatePaid</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

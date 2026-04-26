@@ -1,0 +1,77 @@
+﻿@model List<ListReport1._3.Models.ShippingDetails>
+
+@{
+    Layout = null;   // VERY IMPORTANT
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Shipment Report</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 6px;
+            font-size: 12px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body onload="window.print()">
+
+    <h2>Billings Statement | Revenue| Profit</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Job No</th>
+                <th>Sl No</th>
+                <th>Amount</th>
+                <th>EWT</th>
+                <th>Total (Net of EWT)</th>
+                <th>Dm No. (PHP)</th>
+                <th>Amount</th>
+                <th>Dm No. (USD)</th>
+                <th>Amount</th>
+                <th>Revenue</th>
+                <th>Profit From</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.JobNo</td>
+                    <td>@item.SlNum</td>
+                    <td>₱@item.SlNumAmount</td>
+                    <td>₱@item.Ewt</td>
+                    <td>₱@item.EwtTotal</td>
+                    <td>@item.DmPhp</td>
+                    <td>₱@item.DmPhpAmount</td>
+                    <td>@item.DmUsd</td>
+                    <td>$@item.DmUsdAmount</td>
+                    <td>₱@item.Revenue</td>
+                    <td>@item.ProfitFrom</td>
+                    <td>₱@item.ProfitAmount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

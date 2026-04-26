@@ -1,0 +1,237 @@
+﻿@model ListReport1._3.Models.ShippingDetails
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Create" id="createForm" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid p-3">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+        <!-- 🔷 SECTION: JOB INFO -->
+        <div class="section-title">Job Information</div>
+        <div class="row g-2">
+
+            <div class="col-md-3">
+                <label asp-for="JobNo" class="form-label"></label>
+                <input asp-for="JobNo" class="form-control" />
+                <span asp-validation-for="JobNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Trade" class="form-label"></label>
+                <select asp-for="Trade" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Trades, "TradeName", "TradeName"))">
+                </select>
+                <span asp-validation-for="Trade" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="HblNo" class="form-label"></label>
+                <input asp-for="HblNo" class="form-control" />
+                <span asp-validation-for="HblNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="MblNo" class="form-label"></label>
+                <input asp-for="MblNo" class="form-control" />
+                <span asp-validation-for="MblNo" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <!-- 🔷 SECTION: ROUTING -->
+        <div class="section-title mt-3">Routing & Dates</div>
+        <div class="row g-2">
+
+            <div class="col-md-3">
+                <label asp-for="Ata" class="form-label"></label>
+                <input asp-for="Ata" type="date" class="form-control" />
+                <span asp-validation-for="Ata" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="PolPod" class="form-label"></label>
+                <input asp-for="PolPod" class="form-control" />
+                <span asp-validation-for="PolPod" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <!-- 🔷 SECTION: SHIPMENT -->
+        <div class="section-title mt-3">Shipment Details</div>
+        <div class="row g-2">
+
+            <div class="col-md-3">
+                <label asp-for="Shipper" class="form-label"></label>
+                <input asp-for="Shipper" class="form-control" />
+                <span asp-validation-for="Shipper" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Vessel" class="form-label"></label>
+                <input asp-for="Vessel" class="form-control" />
+                <span asp-validation-for="Vessel" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Commodity" class="form-label"></label>
+                <input asp-for="Commodity" class="form-control" />
+                <span asp-validation-for="Commodity" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Teus" class="form-label"></label>
+                <input asp-for="Teus" class="form-control" />
+                <span asp-validation-for="Teus" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Volume" class="form-label"></label>
+                <input asp-for="Volume" class="form-control" />
+                <span asp-validation-for="Volume" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Measurement" class="form-label"></label>
+                <input asp-for="Measurement" class="form-control" />
+                <span asp-validation-for="Measurement" class="text-danger"></span>
+            </div>
+
+        </div>
+        <!-- 🔷 SECTION: Agents -->
+        <div class="section-title mt-3">Agents</div>
+        <div class="row g-2">
+
+            <div class="col-md-3">
+                <label asp-for="AgentName" class="form-label"></label>
+                <input asp-for="AgentName" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="AgentInvoiceNo" class="form-label"></label>
+                <input asp-for="AgentInvoiceNo" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="AgentAmount" class="form-label"></label>
+                <input type="number" step="0.01" asp-for="AgentAmount" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="AgentDateIssued" class="form-label"></label>
+                <input asp-for="AgentDateIssued" type="date" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="AgentDatePaid" class="form-label"></label>
+                <input asp-for="AgentDatePaid" type="date" class="form-control" />
+            </div>
+
+            <!-- 🔷 SECTION: Consol -->
+            <div class="section-title mt-3">Consol</div>
+            <div class="row g-2">
+
+                <div class="col-md-3">
+                    <label asp-for="SlPayable" class="form-label"></label>
+                    <input asp-for="SlPayable" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="SlInvoiceNo" class="form-label"></label>
+                    <input asp-for="SlInvoiceNo" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="SlAmount" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="SlAmount" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="SlDateIssued" class="form-label"></label>
+                    <input asp-for="SlDateIssued" type="date" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="SlDatePaid" class="form-label"></label>
+                    <input asp-for="SlDatePaid" type="date" class="form-control" />
+                </div>
+
+            </div>
+            <!-- 🔷 SECTION: BILLING -->
+            <div class="section-title mt-3">Billing</div>
+            <div class="row g-2">
+
+                <div class="col-md-3">
+                    <label asp-for="SlNum" class="form-label"></label>
+                    <input asp-for="SlNum" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="SlNumAmount" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="SlNumAmount" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="Ewt" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="Ewt" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="EwtTotal" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="EwtTotal" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="DmPhp" class="form-label"></label>
+                    <input asp-for="DmPhp" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="DmPhpAmount" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="DmPhpAmount" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="DmUsd" class="form-label"></label>
+                    <input asp-for="DmUsd" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="DmUsdAmount" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="DmUsdAmount" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="Revenue" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="Revenue" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="ProfitFrom" class="form-label"></label>
+                    <input asp-for="ProfitFrom" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="ProfitAmount" class="form-label"></label>
+                    <input type="number" step="0.01" asp-for="ProfitAmount" class="form-control" />
+                </div>
+
+            </div>
+
+        <!-- 🔷 BUTTONS -->
+        <div class="mt-3 d-flex justify-content-end gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-circle"></i> Create
+            </button>
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                Cancel
+            </button>
+        </div>
+
+    </div>
+</form>

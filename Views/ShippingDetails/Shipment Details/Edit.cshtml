@@ -1,0 +1,100 @@
+﻿@model ListReport1._3.Models.ShippingDetails
+
+<form id="editForm" asp-action="Edit">
+    <input type="hidden" asp-for="ID" />
+
+    <div class="container-fluid p-3">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+        <!-- 🔷 SECTION: JOB INFO -->
+        <div class="section-title">Job Information</div>
+        <div class="row g-2">
+
+            <div class="col-md-6">
+                <label asp-for="JobNo" class="form-label"></label>
+                <input asp-for="JobNo" class="form-control" />
+                <span asp-validation-for="JobNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Trade" class="form-label"></label>
+                <select asp-for="Trade" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Trades, "TradeName", "TradeName"))">
+                </select>
+                <span asp-validation-for="Trade" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="HblNo" class="form-label"></label>
+                <input asp-for="HblNo" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="MblNo" class="form-label"></label>
+                <input asp-for="MblNo" class="form-control" />
+            </div>
+
+        <!-- 🔷 SECTION: ROUTING -->
+            <div class="section-title mt-3">Routing & Dates</div>
+            <div class="row g-2">
+
+            <div class="col-md-6">
+                <label asp-for="Ata" class="form-label"></label>
+                <input asp-for="Ata" type="date" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="PolPod" class="form-label"></label>
+                <input asp-for="PolPod" class="form-control" />
+            </div>
+
+                <!-- 🔷 SECTION: SHIPMENT -->
+                <div class="section-title mt-3">Shipment Details</div>
+                <div class="row g-2">
+
+            <div class="col-md-6">
+                <label asp-for="Shipper" class="form-label"></label>
+                <input asp-for="Shipper" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Vessel" class="form-label"></label>
+                <input asp-for="Vessel" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Commodity" class="form-label"></label>
+                <input asp-for="Commodity" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Teus" class="form-label"></label>
+                <input asp-for="Teus" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Volume" class="form-label"></label>
+                <input asp-for="Volume" class="form-control" />
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Measurement" class="form-label"></label>
+                <input asp-for="Measurement" class="form-control" />
+            </div>
+
+        </div>
+
+        <!-- 🔷 FOOTER -->
+        <div class="mt-3 d-flex justify-content-end gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save"></i> Save Changes
+            </button>
+
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                Cancel
+            </button>
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,572 @@
+﻿@model IEnumerable<ListReport1._3.Models.ShippingDetails>
+
+@{
+    ViewData["Title"] = "Shipment Details";
+}
+
+<div class="container mt-2 narrow-container">
+
+    <!-- Header + Buttons -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="dashboard-header d-flex justify-content-between align-items-center">
+
+            <!-- LEFT -->
+            <div class="d-flex align-items-center gap-2">
+                <div class="icon-box">
+                    <i class="bi bi-truck"></i>
+                </div>
+                <h4 class="mb-0">Shipment Details</h4>
+            </div>
+
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between mb-3">
+
+            <div class="d-flex gap-2 ms-3">
+
+                <button type="button" id="printBtn" class="btn-pill btn-secondary-pill">
+                    <i class="bi bi-printer"></i> Print
+                </button>
+
+                <button type="button" id="exportBtn" class="btn-pill btn-success-pill">
+                    <i class="bi bi-file-earmark-spreadsheet"></i> Export
+                </button>
+
+                <button type="button"
+                        class="btn-pill btn-primary-pill"
+                        data-bs-toggle="modal"
+                        data-bs-target="#createModal">
+                    Create Shipment
+                </button>
+
+            </div>
+            <div class="wrap flex-grow-1">
+                <div class="search d-flex">
+                    <input type="text"
+                           id="searchInput"
+                           class="searchTerm form-control"
+                           placeholder="Search">
+                    <button type="submit" class="searchButton btn btn-outline-secondary">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div id="printArea" class="table-responsive" style="max-height: 698px; overflow-y: auto;">
+        <table class="table table-hover align-middle table-custom">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.JobNo)</th>
+                    <th>@Html.DisplayNameFor(m => m.Trade)</th>
+                    <th>@Html.DisplayNameFor(m => m.HblNo)</th>
+                    <th>@Html.DisplayNameFor(m => m.MblNo)</th>
+                    <th>@Html.DisplayNameFor(m => m.Ata)</th>
+                    <th>@Html.DisplayNameFor(m => m.PolPod)</th>
+                    <th>@Html.DisplayNameFor(m => m.Shipper)</th>
+                    <th>@Html.DisplayNameFor(m => m.Vessel)</th>
+                    <th>@Html.DisplayNameFor(m => m.Commodity)</th>
+                    <th>@Html.DisplayNameFor(m => m.Teus)</th>
+                    <th>@Html.DisplayNameFor(m => m.Volume)</th>
+                    <th>@Html.DisplayNameFor(m => m.Measurement)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(mItem => item.JobNo)</td>
+                        <td>@Html.DisplayFor(mItem => item.Trade)</td>
+                        <td>@Html.DisplayFor(mItem => item.HblNo)</td>
+                        <td>@Html.DisplayFor(mItem => item.MblNo)</td>
+                        <td>@Html.DisplayFor(mItem => item.Ata)</td>
+                        <td>@Html.DisplayFor(mItem => item.PolPod)</td>
+                        <td>@Html.DisplayFor(mItem => item.Shipper)</td>
+                        <td>@Html.DisplayFor(mItem => item.Vessel)</td>
+                        <td>@Html.DisplayFor(mItem => item.Commodity)</td>
+                        <td>@Html.DisplayFor(mItem => item.Teus)</td>
+                        <td>@Html.DisplayFor(mItem => item.Volume)</td>
+                        <td>@Html.DisplayFor(mItem => item.Measurement)</td>
+                        <td class="text-center">
+                            <div class="d-flex flex-column gap-2 align-items-center">
+                                <button class="btn-pill btn-info-pill btn-sm editBtn"
+                                        data-id="@item.ID">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </button>
+
+                                <button class="btn-pill btn-danger-pill btn-sm deleteBtn"
+                                        data-id="@item.ID">
+                                    <i class="bi bi-trash"></i> Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- Create Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header custom-modal-header">
+                <div class="modal-title-wrapper">
+                    <div class="modal-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <h5 class="modal-title mb-0">Create Shipment Details</h5>
+                </div>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="createModalBody">
+                <div class="text-center">
+                    <span class="spinner-border"></span> Loading form...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header custom-modal-header">
+                <div class="modal-title-wrapper">
+                    <div class="modal-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <h5 class="modal-title mb-0">Edit Shipping Details</h5>
+                </div>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="editModalBody">
+                <div class="text-center">
+                    <span class="spinner-border"></span> Loading form...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content delete-modal">
+
+            <!-- Header -->
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-semibold">Delete Shipment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body text-center pt-2">
+
+                <div class="delete-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </div>
+
+                <p class="delete-text">
+                    Are you sure you want to delete this shipment?
+                </p>
+
+                <p class="delete-subtext">
+                    This action will mark the record as deleted.
+                </p>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" id="confirmDeleteBtn" class="btn btn-danger-pill">
+                    <i class="bi bi-trash"></i> Delete
+                </button>
+
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                    Cancel
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // ===============================
+            // 🔹 SEARCH FUNCTION
+            // ===============================
+            const searchInput = document.getElementById("searchInput");
+            const tableBody = document.querySelector(".table-custom tbody");
+            if (searchInput && tableBody) {
+                searchInput.addEventListener("keyup", function () {
+                    const filter = this.value.toLowerCase();
+                    const rows = tableBody.querySelectorAll("tr");
+                    rows.forEach(row => {
+                        row.style.display = row.textContent.toLowerCase().includes(filter) ? "" : "none";
+                    });
+                });
+            }
+
+            // ===============================
+            // 🔹 CREATE MODAL
+            // ===============================
+            const createModal = document.getElementById("createModal");
+            if (createModal) {
+                createModal.addEventListener("show.bs.modal", function () {
+                    const modalBody = document.getElementById("createModalBody");
+                    if (!modalBody) return;
+
+                    modalBody.innerHTML = '<div class="text-center"><span class="spinner-border"></span> Loading form...</div>';
+
+                    // Store the Razor Url in a variable to avoid conflicts
+                    const createUrl = '@Url.Action("Create", "ShippingDetails")';
+
+                    fetch(createUrl)
+                        .then(res => res.text())
+                        .then(html => {
+                            modalBody.innerHTML = html;
+                            const form = document.getElementById("createForm");
+                            if (!form) return;
+                            form.addEventListener("submit", function (e) {
+                                e.preventDefault();
+                                fetch(form.action, { method: "POST", body: new FormData(form) })
+                                    .then(res => res.text())
+                                    .then(result => {
+                                        try {
+                                            const json = JSON.parse(result);
+                                            if (json.success) {
+                                                const successModalHtml = `
+                                                <div class="modal fade" id="successModal" tabindex="-1">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content success-modal">
+
+                                                            <!-- Header -->
+                                                            <div class="modal-header border-0 pb-0">
+                                                                <h5 class="modal-title fw-semibold">Success</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                            </div>
+
+                                                            <!-- Body -->
+                                                            <div class="modal-body text-center pt-2">
+
+                                                                <div class="success-icon">
+                                                                    <i class="bi bi-check-circle"></i>
+                                                                </div>
+
+                                                                <p class="success-text">
+                                                                    Shipment details created successfully!
+                                                                </p>
+
+                                                                <p class="success-subtext">
+                                                                    Your data has been saved.
+                                                                </p>
+
+                                                            </div>
+
+                                                            <!-- Footer -->
+                                                            
+
+                                                        </div>
+                                                    </div>
+                                                </div>`;
+                                                document.body.insertAdjacentHTML('beforeend', successModalHtml);
+                                                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                                                successModal.show();
+
+                                                setTimeout(() => {
+                                                    successModal.hide();
+                                                    window.location.href = '@Url.Action("Table", "ShippingDetails")';
+                                                }, 1500);
+                                                return;
+                                            }
+                                        } catch { }
+                                        modalBody.innerHTML = result;
+                                    });
+                            });
+                        })
+                        .catch(err => {
+                            modalBody.innerHTML = '<div class="alert alert-danger">Failed to load form.</div>';
+                            console.error(err);
+                        });
+                });
+            }
+
+            // ===============================
+            // 🔹 EDIT MODAL
+            // ===============================
+            document.querySelectorAll(".editBtn").forEach(btn => {
+                btn.addEventListener("click", function () {
+                    const id = this.dataset.id;
+                    const editModalEl = document.getElementById("editModal");
+                    const modalBody = document.getElementById("editModalBody");
+                    if (!editModalEl || !modalBody) return;
+
+                    const editModal = new bootstrap.Modal(editModalEl);
+                    editModal.show();
+                    modalBody.innerHTML = '<div class="text-center"><span class="spinner-border"></span> Loading form...</div>';
+
+                    fetch(`/ShippingDetails/Edit/${id}`)
+                        .then(res => res.text())
+                        .then(html => {
+                            modalBody.innerHTML = html;
+                            const form = document.getElementById("editForm");
+                            if (!form) return;
+
+                            form.addEventListener("submit", function (e) {
+                                e.preventDefault();
+                                fetch(form.action, { method: "POST", body: new FormData(form) })
+                                    .then(res => res.text())
+                                    .then(result => {
+                                        try {
+                                            const json = JSON.parse(result);
+                                            if (json.success) {
+                                                const successModalHtml = `
+                                                <div class="modal fade" id="successModal" tabindex="-1">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content success-modal">
+
+                                                            <!-- Header -->
+                                                            <div class="modal-header border-0 pb-0">
+                                                                <h5 class="modal-title fw-semibold">Success</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                            </div>
+
+                                                            <!-- Body -->
+                                                            <div class="modal-body text-center pt-2">
+
+                                                                <div class="success-icon">
+                                                                    <i class="bi bi-check-circle"></i>
+                                                                </div>
+
+                                                                <p class="success-text">
+                                                                    Shipment details updated successfully!
+                                                                </p>
+
+                                                                <p class="success-subtext">
+                                                                    Your changes have been saved.
+                                                                </p>
+
+                                                            </div>
+
+                                                            <!-- Footer -->
+                                                            
+
+                                                        </div>
+                                                    </div>
+                                                </div>`;
+                                                document.body.insertAdjacentHTML('beforeend', successModalHtml);
+                                                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                                                successModal.show();
+
+                                                setTimeout(() => {
+                                                    successModal.hide();
+                                                    window.location.href = '@Url.Action("Table", "ShippingDetails")';
+                                                }, 1500);
+                                                return;
+                                            }
+                                        } catch { }
+                                        modalBody.innerHTML = result;
+                                    });
+                            });
+                        })
+                        .catch(err => {
+                            modalBody.innerHTML = '<div class="alert alert-danger">Failed to load form.</div>';
+                            console.error(err);
+                        });
+                });
+            });
+
+            // ===============================
+            // 🔹 PRINT TABLE
+            // ===============================
+            document.getElementById("printBtn").addEventListener("click", function () {
+
+                const rows = document.querySelectorAll(".table-custom tbody tr");
+                let visibleData = [];
+
+                rows.forEach(row => {
+                    if (row.style.display !== "none") {
+
+                        const cells = row.querySelectorAll("td");
+
+                        visibleData.push({
+                            JobNo: cells[0].innerText,
+                            Trade: cells[1].innerText,
+                            HblNo: cells[2].innerText,
+                            MblNo: cells[3].innerText,
+                            Ata: cells[4].innerText,
+                            PolPod: cells[5].innerText,
+                            Shipper: cells[6].innerText,
+                            Vessel: cells[7].innerText,
+                            Commodity: cells[8].innerText,
+                            Teus: cells[9].innerText,
+                            Volume: cells[10].innerText,
+                            Measurement: cells[11].innerText
+                        });
+                    }
+                });
+
+                const printUrl = '@Url.Action("Print", "ShippingDetails")';
+                fetch(printUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(visibleData)
+                })
+                    .then(response => response.text())
+                    .then(html => {
+                        const printWindow = window.open('', '_blank');
+                        printWindow.document.write(html);
+                        printWindow.document.close();
+                    });
+            });
+            // ===============================
+            // 🔹 EXPORT VISIBLE TABLE TO CSV (WITHOUT ACTIONS COLUMN)
+            // ===============================
+            const exportBtn = document.getElementById("exportBtn");
+            if (exportBtn) {
+                exportBtn.addEventListener("click", function () {
+                    const table = document.querySelector(".table-custom");
+                    if (!table) return;
+
+                    let csv = [];
+
+                    // Add a custom header row
+                    csv.push('"SHIPMENT DETAILS"'); // <-- This is your top header row
+
+                    // Optionally, add an empty row between title and table headers
+                    csv.push(''); // blank row
+
+                    // Add table headers (exclude last column)
+                    const headers = table.querySelectorAll("thead th");
+                    let headerData = [];
+                    for (let i = 0; i < headers.length - 1; i++) { // Exclude last column (Actions)
+                        let text = headers[i].innerText.replace(/"/g, '""');
+                        headerData.push(`"${text}"`);
+                    }
+                    csv.push(headerData.join(","));
+
+                    // Loop through visible rows
+                    const rows = table.querySelectorAll("tbody tr");
+                    rows.forEach(row => {
+                        if (row.style.display === "none") return; // Skip hidden rows
+
+                        const cols = row.querySelectorAll("td");
+                        let rowData = [];
+                        for (let i = 0; i < cols.length - 1; i++) { // Exclude last column (Actions)
+                            let text = cols[i].innerText.replace(/"/g, '""');
+                            rowData.push(`"${text}"`);
+                        }
+                        csv.push(rowData.join(","));
+                    });
+
+                    // Create CSV file and trigger download
+                    const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+                    const downloadLink = document.createElement("a");
+                    downloadLink.download = "ShippingDetails.csv";
+                    downloadLink.href = window.URL.createObjectURL(csvFile);
+                    downloadLink.style.display = "none";
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                });
+            }
+            // ===============================
+            // 🔹 Delete
+            // ===============================
+            let deleteId = null;
+
+            // Show modal when delete button clicked
+            document.querySelectorAll(".deleteBtn").forEach(btn => {
+                btn.addEventListener("click", function () {
+                    deleteId = this.dataset.id; // store the ID
+                    const deleteModal = new bootstrap.Modal(document.getElementById("deleteConfirmModal"));
+                    deleteModal.show();
+                });
+            });
+
+            // Confirm deletion
+            document.getElementById("confirmDeleteBtn").addEventListener("click", function () {
+                if (!deleteId) return;
+
+                fetch(`/ShippingDetails/DeleteFlag/${deleteId}`, { method: "POST" })
+                    .then(res => res.json())
+                    .then(result => {
+                        if (result.success) {
+                            const successModalHtml = `
+                            <div class="modal fade" id="successModal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content success-modal">
+
+                                        <!-- Header -->
+                                        <div class="modal-header border-0 pb-0">
+                                            <h5 class="modal-title fw-semibold">Success</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+
+                                        <!-- Body -->
+                                        <div class="modal-body text-center pt-2">
+
+                                            <div class="success-icon">
+                                                <i class="bi bi-check-circle"></i>
+                                            </div>
+
+                                            <p class="success-text">
+                                                Shipment details deleted successfully!
+                                            </p>
+
+                                            <p class="success-subtext">
+                                                The record has been marked as deleted.
+                                            </p>
+
+                                        </div>
+
+                                        <!-- Footer -->
+                                      
+
+                                    </div>
+                                </div>
+                            </div>`;
+                            document.body.insertAdjacentHTML('beforeend', successModalHtml);
+                            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                            successModal.show();
+
+                            setTimeout(() => {
+                                successModal.hide();
+                                window.location.href = '@Url.Action("Table", "ShippingDetails")';
+                            }, 1500);
+                            return;
+                        } else {
+                            alert("Failed to delete the record.");
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Error occurred while deleting.");
+                    });
+
+                // Hide modal
+                const deleteModalEl = document.getElementById("deleteConfirmModal");
+                const deleteModal = bootstrap.Modal.getInstance(deleteModalEl);
+                deleteModal.hide();
+            });
+
+        });
+    </script>
+}
