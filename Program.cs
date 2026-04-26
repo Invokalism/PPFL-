@@ -72,5 +72,22 @@ app.MapControllerRoute(
     pattern: "{controller=ShippingDetails}/{action=Table}/{id?}");
 
 app.MapRazorPages();
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        var context = services.GetRequiredService<ShippingDetailsContext>();
+        context.Database.Migrate();
+
+        var identityContext = services.GetRequiredService<ApplicationDbContext>();
+        identityContext.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
+}
 
 app.Run();
