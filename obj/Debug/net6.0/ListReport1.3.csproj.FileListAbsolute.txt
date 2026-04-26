@@ -257,3 +257,5 @@ C:\Users\Emmanuel\source\repos\ListReport1.3\ListReport1.3\obj\Debug\net6.0\refi
 C:\Users\Emmanuel\source\repos\ListReport1.3\ListReport1.3\obj\Debug\net6.0\ListReport1.3.pdb
 C:\Users\Emmanuel\source\repos\ListReport1.3\ListReport1.3\obj\Debug\net6.0\ListReport1.3.genruntimeconfig.cache
 C:\Users\Emmanuel\source\repos\ListReport1.3\ListReport1.3\obj\Debug\net6.0\ref\ListReport1.3.dll
+C:\Users\Emmanuel\source\repos\ListReport1.3\ListReport1.3\bin\Debug\net6.0\Npgsql.dll
+C:\Users\Emmanuel\source\repos\ListReport1.3\ListReport1.3\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

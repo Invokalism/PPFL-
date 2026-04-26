@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ListReport1._3.Migrations
 {
     [DbContext(typeof(ShippingDetailsContext))]
-    [Migration("20260227135934_AddNewFields")]
-    partial class AddNewFields
+    [Migration("20260426203207_InitPostgres")]
+    partial class InitPostgres
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,8 +32,8 @@ namespace ListReport1._3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int>("AgentAmount")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("AgentAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("AgentDateIssued")
                         .HasMaxLength(100)
@@ -59,6 +59,26 @@ namespace ListReport1._3.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("DmPhp")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<decimal?>("DmPhpAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("DmUsd")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<decimal?>("DmUsdAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("Ewt")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("EwtTotal")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int?>("Flag")
                         .HasColumnType("int");
 
@@ -83,12 +103,22 @@ namespace ListReport1._3.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<decimal?>("ProfitAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProfitFrom")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<decimal?>("Revenue")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Shipper")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("SlAmount")
-                        .HasColumnType("int");
+                    b.Property<decimal?>("SlAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("SlDateIssued")
                         .HasMaxLength(100)
@@ -101,6 +131,13 @@ namespace ListReport1._3.Migrations
                     b.Property<string>("SlInvoiceNo")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("SlNum")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<decimal?>("SlNumAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("SlPayable")
                         .HasMaxLength(100)
