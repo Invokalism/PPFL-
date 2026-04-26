@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Render port
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
 
-// ✅ ALWAYS use PostgreSQL (no fallback)
+// ✅ Get DATABASE_URL from Render
 var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
 
 if (string.IsNullOrEmpty(databaseUrl))
@@ -16,6 +16,7 @@ if (string.IsNullOrEmpty(databaseUrl))
     throw new Exception("DATABASE_URL is not set.");
 }
 
+// ✅ Parse DATABASE_URL safely
 var uri = new Uri(databaseUrl);
 var userInfo = uri.UserInfo.Split(':');
 
@@ -30,7 +31,7 @@ var connectionString = new NpgsqlConnectionStringBuilder
     TrustServerCertificate = true
 }.ToString();
 
-// 👉 USE POSTGRES ONLY
+// 👉 Register DbContexts (PostgreSQL only)
 builder.Services.AddDbContext<ShippingDetailsContext>(options =>
     options.UseNpgsql(connectionString));
 
@@ -48,6 +49,7 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+// Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -58,7 +60,7 @@ else
     app.UseHsts();
 }
 
-// ⚠️ Disable if needed
+// ⚠️ IMPORTANT: Keep this OFF on Render unless configured properly
 // app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -72,6 +74,8 @@ app.MapControllerRoute(
     pattern: "{controller=ShippingDetails}/{action=Table}/{id?}");
 
 app.MapRazorPages();
+
+// ✅ AUTO APPLY MIGRATIONS (VERY IMPORTANT)
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -86,7 +90,7 @@ using (var scope = app.Services.CreateScope())
     }
     catch (Exception ex)
     {
-        Console.WriteLine(ex.Message);
+        Console.WriteLine("Migration error: " + ex.Message);
     }
 }
 
